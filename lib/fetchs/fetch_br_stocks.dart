@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:finance_image/asset_image_path.dart';
 import 'package:finance_image/asset_logo.dart';
 import 'package:finance_image/config.dart';
 import 'package:http/http.dart' as http;
@@ -23,7 +24,7 @@ Future<List<AssetLogo>> fetchBrStocks() async {
             ticker: item['ticker'],
             logoUrl:
                 '${Config.instance.fetchBrStocksUrlImage}/${item['companyid']}.jpg',
-            folder: 'images/br/fiis',
+            folder: AssetImagePath.brStocks.path,
           ),
         )
         .toList();
