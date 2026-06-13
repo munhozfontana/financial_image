@@ -11,6 +11,7 @@ Future<List<AssetLogo>> fetchBrStocks() async {
     headers: const {
       'accept': 'application/json',
       'x-requested-with': 'XMLHttpRequest',
+      'User-Agent': 'Mozilla/5.0',
     },
   );
 

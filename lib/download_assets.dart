@@ -12,8 +12,6 @@ Future<void> downloadAssets(List<AssetLogo> assets) async {
 
       final file = File('${directory.path}/${asset.ticker.toUpperCase()}.jpg');
 
-      await Future.delayed(const Duration(milliseconds: 500));
-
       final imageResponse = await http.get(Uri.parse(asset.logoUrl));
 
       if (imageResponse.statusCode != 200) {
@@ -24,6 +22,8 @@ Future<void> downloadAssets(List<AssetLogo> assets) async {
       await file.writeAsBytes(imageResponse.bodyBytes, flush: true);
 
       print('✅ ${asset.ticker}');
+
+      await Future.delayed(const Duration(milliseconds: 500));
     } catch (e) {
       print('❌ ${asset.ticker}: $e');
     }
